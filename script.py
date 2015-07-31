@@ -8,6 +8,7 @@ from urllib.parse import urlencode
 from json import loads
 from collections import namedtuple
 import contextlib
+from dateutil import parser
 
 limit = 300
 my_phone_number = '972541111111' #your phone number with 972 prefix 
@@ -16,6 +17,7 @@ nexmo_api_secret = "" #You can get both the key and secret from nexmo.com
 nexmo_api_key = ""
 facebook_access_token = '' #You can get you facebook access token from: https://developers.facebook.com/tools/explorer/
 facebook_group_id = '172544843294' #Dirot Mipe Leozen Jerusalem
+max_single_room_price, min_apt_price, max_apt_price = 1800, 3000, 5300 #price < 1800 or 3000 < price < 5300
 
 known_posts_file = "known_posts.txt"
 try :
@@ -80,7 +82,6 @@ def filter_posts(posts):
             if any(price < 1800 or 3000 < price < 5300  for price in post.prices):
                 yield post
 
-from dateutil import parser
 relevant_posts =list(filter_posts(posts))
 
 for post in relevant_posts:
