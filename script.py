@@ -79,7 +79,7 @@ posts = [Post(d) for d in data]
 def filter_posts(posts):
     for post in posts:
         if post.neighborhood:
-            if any(price < 1800 or 3000 < price < 5300  for price in post.prices):
+            if any(price < max_single_room_price or min_apt_price  < price < max_apt_price for price in post.prices):
                 yield post
 
 relevant_posts =list(filter_posts(posts))
