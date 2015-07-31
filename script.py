@@ -38,10 +38,6 @@ url = "https://graph.facebook.com/v2.0/{}/feed/?access_token={}&limit={}"
 res = loads(request.urlopen(url.format(facebook_group_id, facebook_access_token, limit)).read().decode('utf8'))
 data = res['data']
 
-"""
-ENTER PHONE NUMBER HERE:
-"""
-
 def hebrew_to_english(text):
     translate = {chr(ord('א')+heb):eng for heb,eng in zip(range(27),"abgdhwzhtycclmmnnseppzzkrrst")} 
     translate[' '] = '-'
