@@ -6,9 +6,6 @@ import re
 from urllib import request
 from urllib.parse import urlencode
 from json import loads
-from collections import namedtuple
-import contextlib
-from dateutil import parser
 
 limit = 300
 my_phone_number = '972541111111' #your phone number with 972 prefix 
@@ -86,3 +83,6 @@ for post in relevant_posts:
             text_post(post)
         print("New Post {}".format(post.id))
         add_post_to_known_posts(post)
+
+#from pandas import DataFrame
+#df = DataFrame(relevant_posts, columns = fields)
